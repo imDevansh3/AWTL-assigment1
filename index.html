@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    function validateform() {
+        var name = document.myform.name.value;
+        var password = document.myform.password.value;
+        var dropdown = document.myform['services-dropdown'].value;
+
+        if (name == null || name === "") {
+            alert("Name can't be blank");
+            return false;
+        } else if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return false;
+        } else if (dropdown === "") {
+            alert("Please choose a service from the dropdown.");
+            return false;
+        } else {
+            window.location.href = 'thankyou.html';
+            return false;
+        }
+    }
+</script>
+</head>
+<body> 
+    <div class="container">
+        <div class="navbar">
+            <img src="logo2.png" alt="logo">
+            <ul>
+                <a href="index.html"> 
+                <li>home</li>
+                </a>
+                <a href="acc.html"> 
+                <li >shop</li>
+                </a>
+                <li>about us</li>
+            </ul>
+        </div>
+        <div class="banner">
+            <h1>WELCOME!</h1>
+        </div>
+
+        <div class="contents">
+            <div class="card">
+                <img src="work1.jpeg" alt="">
+                <h3>Workshop photographs</h3>
+                <p></p>
+                <a href="work.html">
+                    <button>workshop</button>
+                </a>
+            </div>
+            <div class="card">
+                <img src="acc1.jpeg" alt="">
+                <h3>car accessories</h3>
+                <p></p>
+                <a href="acc.html">
+                    <button>Shop now</button>
+                </a>
+            </div>
+            <div class="card">
+                <img src="serv1.png" alt="">
+                <h3>car servicing</h3>
+                <p></p>
+                <a href="servicing.html">
+                    <button> Book now</button>
+                </a>
+            </div>
+
+            <div class="form">
+                <form name="myform" method="post" action="thankyou.html" onsubmit="return validateform()">
+                    Name: <input type="text" name="name"><br/> 
+                    Password: <input type="password" name="password"><br/>
+                    <div class="flex items-start self-stretch gap-3">
+                        <fieldset name="dropdown">
+                            <legend>Select Service</legend>
+                            <select name="services-dropdown">
+                                <option value="" selected="" disabled=""></option>
+                                <option value="Car-accessories">Car-accessories</option>
+                                <option value="Car-Servicing">Car-Servicing</option>
+                            </select>
+                        </fieldset>
+                        <input type="submit" value="SUBMIT"> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
